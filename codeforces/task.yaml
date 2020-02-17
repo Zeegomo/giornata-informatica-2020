@@ -1,0 +1,15 @@
+# General info
+name: codeforces
+title: Mike Mirzayanov
+
+# Technical info
+memory_limit: 512
+time_limit: 3
+infile: ''
+outfile: ''
+n_input: 41
+
+# Other stuff
+score_mode: max
+token_mode: disabled
+public_testcases: all
