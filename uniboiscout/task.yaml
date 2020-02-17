@@ -1,13 +1,13 @@
 # General info
-name: lettere
-title: Firma digitale
+name: uniboiscout
+title: Contagio in tenda
 
 # Technical info
 memory_limit: 256
-time_limit: 1.0
+time_limit: 2
 infile: ''
 outfile: ''
-n_input: 40
+n_input: 30
 
 # Other stuff
 score_mode: max
