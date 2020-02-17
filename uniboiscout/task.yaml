@@ -7,9 +7,9 @@ memory_limit: 256
 time_limit: 2
 infile: ''
 outfile: ''
-n_input: 30
+n_input: 12
 
 # Other stuff
-score_mode: max
+score_mode: sum
 token_mode: disabled
 public_testcases: all
