@@ -17,49 +17,57 @@ struct random_boy{
 		return rand32() % (r - l + 1) + l;
 	 }
 };
+random_boy randy;
 
+string good_test(){
+	int n = randy.rand_in(10, 200);
+	string s = "";
+	for(int i = 0; i < n; i++){
+		s += randy.rand_in(0, 25)+'a';
+	}
+	return s;
+}
+string rand_test(){
+	int n = randy.rand_in(10, 200);
+	string t = "qwertyuioplkjhgfdsazxcvbnm";
+	random_shuffle(t.begin(), t.end());
+	string s = "";
+	int pos = 0;
+	for(int i = 0; i < n; i++){
+		s += t[pos];
+		if(pos == 0){
+			pos++;
+		}else if(pos == 25){
+			pos--;
+		}else{
+			if(randy.rand_in(0, 1) < 1){
+				pos++;
+			}else{
+				pos--;
+			}
+		}
+	}
+	return s;
+}
 signed main(int argc, char** argv) {
-	if(argc != 5)
+	if(argc != 3)
 	 	return 1;
 
-	int n, q, b, seed;
-	n = stoi(argv[1]);
-	q = stoi(argv[2]);
-	b = stoi(argv[3]);
-	seed = stoi(argv[4]);
-	random_boy randy = random_boy(seed);
-	if(n == -1){
-		cout <<"5 1 2 3 4 5 2 2 1 2 2 1 1 ";
+	int n, t, seed;
+	t = stoi(argv[1]);
+	seed = stoi(argv[2]);
+	randy = random_boy(seed);
+	if(t == -1){
+		cout <<"5\nababa\ncodedoca\nabcda\nzxzytyz\nabcdefghijklmnopqrstuvwxyza\n";
 		return 0;
+	}
+	cout << t << "\n";
+	for(int i = 0; i < t; i++){
+		if(randy.rand_in(0, 1) > 0){
+			cout << good_test() << "\n";
+		} else{
+			cout << rand_test() << "\n";
+		}
 	}
 
-	if(n == -2){
-		cout<<"5\n";
-		cout<<"1 2 3 4 5\n";
-		cout<<"2\n";
-		cout<<"1 1 1 10\n";
-		cout<<"2 1 2\n";
-		return 0;
-	}	
-	vector<int> v(n);
-	for(int i = 0; i < n; i++){
-		v[i] = randy.rand_in(1, 1e6);
-	}
-	cout << n << "\n";
-	for(int i : v)
-		cout<<i<<" ";
-	cout<<"\n";
-	cout<<q<<"\n";
-	vector<vector<int>> queries;
-	for(int i = 0; i < b; i++){
-		queries.push_back({1, randy.rand_in(1, 1+i), randy.rand_in(1, n), randy.rand_in(1, 1e6)});
-	}
-	for(int i = 0; i < q-b; i++){
-		queries.push_back({2, randy.rand_in(1, 1+b), randy.rand_in(1, 1e6)});
-	}
-	for(auto v : queries){
-		for(int i : v)
-			cout<<i<<" ";
-		cout<<"\n";
-	}
 }
