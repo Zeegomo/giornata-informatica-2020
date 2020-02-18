@@ -1,15 +1,15 @@
 # General info
-name: elisabetta
-title: Bambini cattivi 
+name: sciroppo
+title: Cade basso 
 
 # Technical info
-memory_limit: 24
-time_limit: 5
+memory_limit: 128
+time_limit: 2
 infile: ''
 outfile: ''
-n_input: 30
+n_input: 17
 
 # Other stuff
-score_mode: max
+score_mode: sum
 token_mode: disabled
 public_testcases: all

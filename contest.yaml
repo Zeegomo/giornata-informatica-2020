@@ -1,9 +1,7 @@
 name: "Giornata dell'informatica 2020"
 description: "UNIBOis got sick"
 tasks:
-  - "robot"
-  - "lettere"
-  - "elisabetta"
-  - "ghiaccio"
-  - "codeforces"
-
+  - "ospedali"
+  - "ricetta"
+  - "boyscout"
+  - "sciroppo"
