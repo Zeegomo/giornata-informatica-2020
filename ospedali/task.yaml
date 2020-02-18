@@ -1,13 +1,13 @@
 # General info
-name: robot
-title: P.A.N.T.I.E.R.I
+name: ospedali
+title: Riviera romagnola
 
 # Technical info
-memory_limit: 64
-time_limit: 0.5
+memory_limit: 16
+time_limit: 1
 infile: ''
 outfile: ''
-n_input: 41
+n_input: 34
 
 # Other stuff
 score_mode: max

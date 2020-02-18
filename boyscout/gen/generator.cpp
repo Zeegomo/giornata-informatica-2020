@@ -48,8 +48,18 @@ signed main(int argc, char** argv) {
         return 0;
     }
 
-    cout << n << ' ' << m << '\n';
+    // complete graph
+    if (m == -2) {
+        cout << n << ' ' << ((n * (n+1)) / 2) << '\n';
+        for(int i = 0; i <= n; i++) {
+            for (int j = i + 1; j <= n; j++) {
+                cout << i << ' ' << j << '\n';
+            }
+        }
+        return 0;
+    }
 
+    cout << n << ' ' << m << '\n';
     set<pair<int,int>> s;
 
     // zeeg is alone :(

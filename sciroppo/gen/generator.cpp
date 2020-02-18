@@ -29,7 +29,7 @@ int main(int argc, char** argv) {
   ll seed = stoll(argv[4]);
 
   if(seed == -1) {
-    cout << "3 5 0 2" << '\n';
+    cout << "2 5 0 2" << '\n';
 
     cout << "4 3 0 7 6\n";
     cout << "1 3 4 1 1\n";
