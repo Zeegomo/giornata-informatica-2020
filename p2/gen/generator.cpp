@@ -4,7 +4,6 @@ using namespace std;
 
 using ll = long long;
 
-
 struct random_boy{
   mt19937 rng;
   uniform_int_distribution<int> gen;
@@ -21,53 +20,44 @@ struct random_boy{
   }
 };
 
-string pad(int n, int digits) {
-  if (n < 0) {
-    return "-" + pad(-n, digits-1);
-  }
-  string x = to_string(n);
-  while(x.length() < digits) x = "0" + x;
-  return x;
-}
-
 int main(int argc, char** argv) {
-  if(argc != 3) {
-    return 1;
+  assert(argc == 5);
+
+  int n = stoi(argv[1]);
+  int m = stoi(argv[2]);
+  int maxv = stoi(argv[3]);
+  ll seed = stoll(argv[4]);
+
+  if(seed == -1) {
+    cout << "3 5 0 2" << '\n';
+
+    cout << "4 3 0 7 6\n";
+    cout << "1 3 4 1 1\n";
+  } else if(seed == -2) {
+    cout << "3 5 0 2" << '\n';
+    
+    cout << "1 2 0 1 2\n";
+    cout << "3 2 1 3 4\n";
+    cout << "2 4 3 1 5\n";
   }
 
-  ll SEED = stoll(argv[1]);
-  ll S = stoll(argv[2]); // bool: 1 = show seconds
+  assert(n >= 2 && m >= 1);
+  assert(n <= 5e2 && m <= 5e2);
+  assert(maxv <= 100);
 
-  random_boy randy(SEED);
 
-  vector<string> month {
-    "gennaio",
-    "febbraio",
-    "marzo",
-    "aprile",
-    "maggio",
-    "giugno",
-    "luglio",
-    "agosto",
-    "settembre",
-    "ottobre",
-    "novembre",
-    "dicembre"
-  };
 
-  ll N = S ? 1500000 : 300000;
-  cout<<N<<'\n';
-  for(int i = 0; i < N; i++) {
-    cout
-      <<pad(randy.rand_in(0, 23), 2)
-      <<':'
-      <<pad(randy.rand_in(0, 60), 2);
-      if (S) {
-        cout<<':'<<pad(randy.rand_in(0, 60), 2);
-      }
-      cout
-        <<' '<<month[randy.rand_in(0, 11)]
-        <<' '<<pad(randy.rand_in(-1000, 2000), 4)
-        <<'\n';
+  random_boy randy(seed);
+
+  int r = randy.rand_in(0, n - 2);
+  int c = randy.rand_in(0, m-1)
+
+  cout << n << ' ' << m << ' ' << r << ' ' << c << '\n';
+  for(int i = 0; i < n; i++) {
+    for(int j = 0; j < m; j++) {
+      if(i == r && j == c) cout << 0 << ' ';
+      else cout << randy.rand_in(1, maxv) << ' ';
+    }
+    cout << '\n';
   }
 }
