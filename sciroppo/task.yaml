@@ -7,7 +7,7 @@ memory_limit: 128
 time_limit: 2
 infile: ''
 outfile: ''
-n_input: 15
+n_input: 17
 
 # Other stuff
 score_mode: sum
