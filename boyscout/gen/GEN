@@ -1,5 +1,5 @@
 # N M seed
-# M == -1 chain graph, seed == -1 zeeg is alone :(
+# M == -1 chain graph, M == -2 complete graph, seed == -1 zeeg is alone :(
 #ST: 0
 -1 0 0
 -2 0 0
@@ -13,4 +13,4 @@
 10000 10000 7562
 50000 100000 45
 100000 -1 0
-100 10000 532
+446 -2 0
