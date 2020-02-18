@@ -33,12 +33,14 @@ int main(int argc, char** argv) {
 
     cout << "4 3 0 7 6\n";
     cout << "1 3 4 1 1\n";
+    return 0;
   } else if(seed == -2) {
     cout << "3 5 0 2" << '\n';
     
     cout << "1 2 0 1 2\n";
     cout << "3 2 1 3 4\n";
     cout << "2 4 3 1 5\n";
+    return 0;
   }
 
   assert(n >= 2 && m >= 1);
