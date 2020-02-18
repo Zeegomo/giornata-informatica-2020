@@ -60,7 +60,6 @@ signed main(int argc, char** argv) {
     }
 
     cout << n << ' ' << m << '\n';
-
     set<pair<int,int>> s;
 
     // zeeg is alone :(
