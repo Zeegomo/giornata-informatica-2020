@@ -50,7 +50,7 @@ int main(int argc, char** argv) {
   random_boy randy(seed);
 
   int r = randy.rand_in(0, n - 2);
-  int c = randy.rand_in(0, m-1)
+  int c = randy.rand_in(0, m-1);
 
   cout << n << ' ' << m << ' ' << r << ' ' << c << '\n';
   for(int i = 0; i < n; i++) {
