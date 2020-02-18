@@ -19,15 +19,19 @@ struct random_boy{
 };
 random_boy randy;
 
-string good_test(){
+string rand_test(){
 	int n = randy.rand_in(10, 200);
 	string s = "";
 	for(int i = 0; i < n; i++){
-		s += randy.rand_in(0, 25)+'a';
+		char nxt = randy.rand_in(0, 25)+'a';
+		while(nxt == s.back()){
+			nxt = randy.rand_in(0, 25)+'a';
+		}
+		s += nxt;
 	}
 	return s;
 }
-string rand_test(){
+string good_test(){
 	int n = randy.rand_in(10, 200);
 	string t = "qwertyuioplkjhgfdsazxcvbnm";
 	random_shuffle(t.begin(), t.end());
@@ -59,6 +63,9 @@ signed main(int argc, char** argv) {
 	randy = random_boy(seed);
 	if(t == -1){
 		cout <<"5\nababa\ncodedoca\nabcda\nzxzytyz\nabcdefghijklmnopqrstuvwxyza\n";
+		return 0;
+	}else if(t == -2){
+		cout <<"1\ne";
 		return 0;
 	}
 	cout << t << "\n";
