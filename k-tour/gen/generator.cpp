@@ -41,16 +41,30 @@ int main(int argc, char** argv) {
       		<<"2 4 6"<<endl
       		<<"4 5 4"<<endl;
   	} else{
-      int limit = (int)min(400LL, (ll)n*(n-1)/2); 
+      int limit = (int)min(400LL, (ll)n*(n-1)/2);
+      set<pair<int, int>> s; 
 	  	int k = randy.rand_in(1, limit);
    		cout << n << " " << m << " " << k << endl;
     		for(int i = 2; i <= n; i++){
-     			cout << i << " " << randy.rand_in(1, i-1);
-        		cout << " " << randy.rand_in(1, 1e4);
-      			cout<<" \n";
+     			int tmp = randy.rand_in(1, i-1);
+          cout << i << " " << tmp;
+          s.insert({i, tmp});
+          s.insert({tmp, i});
+        	cout << " " << randy.rand_in(1, 1e4);
+      		cout<<" \n";
+
     		}
     		for (int i = 0; i < m-n +1; i++) {
-      			cout << randy.rand_in(1, n) << " "<< randy.rand_in(1, n);
+
+      			int old = randy.rand_in(1, n);
+            int next = randy.rand_in(1, n);
+            while(s.count({old, next}) || old == next){
+              old = randy.rand_in(1, n);
+              next = randy.rand_in(1, n);
+            }
+            s.insert({old, next});
+            s.insert({next, old});
+            cout << old << " "<< next;
         		cout << " " << randy.rand_in(1, 1e4) <<"\n";
     		}
   	}
