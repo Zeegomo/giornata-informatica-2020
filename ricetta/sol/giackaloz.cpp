@@ -10,10 +10,10 @@ int main() {
 
         vector<char> nastro(1000, '-');
         set<char> used;
-        nastro[500] = s[0];
+        nastro[0] = s[0];
         used.insert(s[0]);
 
-        int pos = 500;
+        int pos = 0;
         bool ok = true;
         for(int i = 1; i < s.size(); i++) {
             char next = s[i];
@@ -22,7 +22,7 @@ int main() {
                 if (nastro[pos + 1] == '-') {
                     nastro[pos + 1] = next;
                     pos++;
-                } else if (nastro[pos - 1] == '-') {
+                } else if (pos > 0 && nastro[pos - 1] == '-') {
                     nastro[pos - 1] = next;
                     pos--;
                 } else {
@@ -35,7 +35,7 @@ int main() {
             } else {
                 if (nastro[pos + 1] == next) {
                     pos++;
-                } else if (nastro[pos - 1] == next) {
+                } else if (pos > 0 && nastro[pos - 1] == next) {
                     pos--;
                 } else {
                     cout << "NO\n";
